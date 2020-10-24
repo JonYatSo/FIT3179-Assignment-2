@@ -143,8 +143,8 @@
           {"field": "Company", "type": "nominal"},
           {"field": "Sector", "type": "nominal"},
           {"field": "Industry", "type": "nominal"},
-          {"field": "Market\\.Value", "type": "quantitative", "format": ","},
           {"field": "Revenue", "type": "quantitative", "format": ","},
+          {"field": "Market\\.Value", "type": "quantitative", "format": ","},
           {"field": "Assets", "type": "quantitative", "format": ","},
           {"field": "Country", "type": "nominal"}          
         ]
@@ -173,8 +173,8 @@
           {"field": "Company", "type": "nominal"},
           {"field": "Sector", "type": "nominal"},
           {"field": "Industry", "type": "nominal"},
-          {"field": "Market\\.Value", "type": "quantitative", "format": ","},
           {"field": "Revenue", "type": "quantitative", "format": ","},
+          {"field": "Market\\.Value", "type": "quantitative", "format": ","},
           {"field": "Assets", "type": "quantitative", "format": ","},
           {"field": "Country", "type": "nominal"}          
         ]

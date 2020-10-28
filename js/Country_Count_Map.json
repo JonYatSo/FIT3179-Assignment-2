@@ -14,7 +14,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/MappedCountedData.csv"
+        "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
       },
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
@@ -28,7 +28,8 @@
             "opacity": 0.7
                       },
           "encoding": {
-            "size": {"field": "Count",
+            "size": {"field": "Country",
+                    "aggregate": "count",
                      "type": "quantitative",
                      "scale": {
                           "domain":[10,50,100],

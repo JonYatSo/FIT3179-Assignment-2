@@ -1,0 +1,123 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Histogram of profit per dollar of assets for companies featured in Forbes 2000 in 2019",
+  "data": {
+    "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
+  },
+  "params": [{
+      "name": "Sector_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Consumer Discretionary",
+          "Consumer Staples",
+          "Energy",
+          "Financials",
+          "Health Care",
+          "Industrials",
+          "Information Technology",
+          "Materials",
+          "Telecommunication Services",
+          "Utilities", 
+          "Unknown"
+        ],
+        "labels":[
+          "Show All",
+          "Consumer Discretionary",
+          "Consumer Staples",
+          "Energy",
+          "Financials",
+          "Health Care",
+          "Industrials",
+          "Information Technology",
+          "Materials",
+          "Telecommunication Services",
+          "Utilities", 
+          "Unknown"
+        ],
+        "name": "Select a sector: "
+      }
+    },
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Africa",
+          "Asia",
+          "Australia",
+          "Europe",
+          "North America",
+          "South America",
+          "Unknown"
+        ],
+        "labels":[
+          "Show All",
+         "Africa",
+          "Asia",
+          "Australia",
+          "Europe",
+          "North America",
+          "South America",
+          "Unknown"
+        ],
+        "name": "Select continent: "
+      }
+    }
+  ],
+   "transform": [
+    {"filter": "datum.ProfitPerRevenue<5"},
+    {"filter": "Sector_selection == null || datum.Sector == Sector_selection"},
+    {"filter": "Continent_selection == null || datum.Continent == Continent_selection"}
+  ],
+  "hconcat":[{
+    "width": 800,
+    "height": 600,
+    "layer":[{
+      "selection": {
+          "brush": {"type": "interval", "encodings": ["x"]}},
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "bin": {"binned": false, "step": 0.075},
+          "field": "ProfitPerRevenue",
+          "title": "Amount of profit per dollar of revenue earned"
+        },
+        "y": {"aggregate": "count",
+        "title": "Count"},
+        "color":{"value":"#5e3c99"},
+        "tooltip": [
+          {"aggregate": "count", "type": "quantitative", "title": "Count"}
+    ]
+      }
+      },{
+        "mark": "rule",
+        "encoding": {
+          "x": {"aggregate":"mean","field":"ProfitPerRevenue"},
+          "color": {"value": "#e66101"},
+          "size": {"value":3},
+          "tooltip": [
+          {"aggregate":"mean","field":"ProfitPerRevenue", "type": "quantitative", "title": "Mean Value"}]
+              }}]
+        
+  }, {"width": 300,
+      "height": 600,
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "bin": {"binned": false, "step": 0.025,"extent": {"selection": "brush"}},
+          "field": "ProfitPerRevenue",
+          "title": "<---drag through a range on the left histogram to see details"
+        },
+        "y": {"aggregate": "count",
+        "title": ""},
+        "color":{"value":"#5e3c99"},
+        "tooltip": [
+          {"aggregate": "count", "type": "quantitative", "title": "Count"}
+    ]
+      }
+      }]
+}
+

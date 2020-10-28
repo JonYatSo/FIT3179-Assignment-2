@@ -2,56 +2,49 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Correlations between profit and market value for companies featured in Forbes 2000 in 2019",
   "data": {
-    "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v3.csv"
+    "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
   },
-  "vconcat":[{
+  "hconcat":[{
     "width": 800,
     "height": 600,
-    "selection": {
-      "brush": {"type": "interval",          "encodings": ["x"]}
-    },
     "layer":[{
+      "selection": {
+          "brush": {"type": "interval", "encodings": ["x"]}},
       "mark": "bar",
       "encoding": {
         "x": {
-          "bin": {"binned": false, "step": 0.025},
+          "bin": {"binned": false, "step": 0.02},
           "field": "ProfitPerAsset",
           "title": "Amount of profit per dollar of asset owned"
         },
         "y": {"aggregate": "count",
-        "title": "Count"}
+        "title": "Count"},
+        "tooltip": [
+          {"aggregate": "count", "type": "quantitative", "title": "Count"}
+    ]
       }
-    },{
-      "mark": "rule",
+      },{
+        "mark": "rule",
+        "encoding": {
+          "x": {"aggregate":"mean","field":"ProfitPerAsset"},
+          "color": {"value": "red"},
+          "size": {"value":3}
+              }}]
+  }, {"width": 300,
+      "height": 600,
+      "mark": "bar",
       "encoding": {
-        "x": {"aggregate": "average", "field": "Assets"},
-        "color": {"value": "red"},
-        "size": {"value": 20}
-    }}]
-  }, ]
+        "x": {
+          "bin": {"binned": false, "step": 0.005,"extent": {"selection": "brush"}},
+          "field": "ProfitPerAsset",
+          "title": "<---drag through a range on the left histogram to see details"
+        },
+        "y": {"aggregate": "count",
+        "title": ""},
+        "tooltip": [
+          {"aggregate": "count", "type": "quantitative", "title": "Count"}
+    ]
+      }
+      }]
 }
 
-"vconcat": [{
-    "width": 963,
-    "height": 100,
-    "selection": {
-      "brush": {"type": "interval", "encodings": ["x"]}
-    },
-    "mark": "bar",
-    "encoding": {
-      "x": {"field": "time", "bin": {"maxbins": 30}},
-      "y": {"aggregate": "count"}
-    }
-  }, {
-    "width": 963,
-    "height": 100,
-    "mark": "bar",
-    "encoding": {
-      "x": {
-        "field": "time",
-        "bin": {"maxbins": 30, "extent": {"selection": "brush"}}
-      },
-      "y": {"aggregate": "count"}
-    }
-  }]
-}

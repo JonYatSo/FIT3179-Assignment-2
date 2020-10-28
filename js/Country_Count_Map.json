@@ -39,7 +39,9 @@
                         }
                       
                          },
-            "tooltip": [{"field": "Country", "type":"nominal"},{"field": "Count", "type":"quantitative"}]   
+            "tooltip": [{"field": "Country", "type":"nominal"},
+                        {"field": "Country","aggregate": "count", "type":"quantitative",
+                        "title":"Count"}]   
             }
           }
       ]

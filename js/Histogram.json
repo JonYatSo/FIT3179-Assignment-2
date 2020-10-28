@@ -4,6 +4,73 @@
   "data": {
     "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
   },
+  "params": [{
+      "name": "Sector_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Consumer Discretionary",
+          "Consumer Staples",
+          "Energy",
+          "Financials",
+          "Health Care",
+          "Industrials",
+          "Information Technology",
+          "Materials",
+          "Telecommunication Services",
+          "Utilities", 
+          "Unknown"
+        ],
+        "labels":[
+          "Show All",
+          "Consumer Discretionary",
+          "Consumer Staples",
+          "Energy",
+          "Financials",
+          "Health Care",
+          "Industrials",
+          "Information Technology",
+          "Materials",
+          "Telecommunication Services",
+          "Utilities", 
+          "Unknown"
+        ],
+        "name": "Select a sector: "
+      }
+    },
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Africa",
+          "Asia",
+          "Australia",
+          "Europe",
+          "North America",
+          "South America",
+          "Unknown"
+        ],
+        "labels":[
+          "Show All",
+         "Africa",
+          "Asia",
+          "Australia",
+          "Europe",
+          "North America",
+          "South America",
+          "Unknown"
+        ],
+        "name": "Select continent: "
+      }
+    }
+  ],
+   "transform": [
+    {"filter": "Sector_selection == null || datum.Sector == Sector_selection"},
+    {"filter": "Continent_selection == null || datum.Continent == Continent_selection"}
+  ],
   "hconcat":[{
     "width": 800,
     "height": 600,
@@ -28,8 +95,11 @@
         "encoding": {
           "x": {"aggregate":"mean","field":"ProfitPerAsset"},
           "color": {"value": "red"},
-          "size": {"value":3}
+          "size": {"value":3},
+          "tooltip": [
+          {"aggregate":"mean","field":"ProfitPerAsset", "type": "quantitative", "title": "Mean Value"}]
               }}]
+        
   }, {"width": 300,
       "height": 600,
       "mark": "bar",

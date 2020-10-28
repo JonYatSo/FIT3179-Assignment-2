@@ -4,6 +4,50 @@
   "height": 500,
   "title": "Number of companies from each Country that is featured on Forbes Global 2000 in 2019",
   "projection": {"type": "equalEarth"},
+  "params": [{"name": "MarVal_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 200,
+        "step": 5,
+        "name": "Min Market Value(B$USD): "
+      }
+    },
+      {"name": "Sector_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Consumer Discretionary",
+          "Consumer Staples",
+          "Energy",
+          "Financials",
+          "Health Care",
+          "Industrials",
+          "Information Technology",
+          "Materials",
+          "Telecommunication Services",
+          "Utilities", 
+          "Unknown"
+        ],
+        "labels":[
+          "Show All",
+          "Consumer Discretionary",
+          "Consumer Staples",
+          "Energy",
+          "Financials",
+          "Health Care",
+          "Industrials",
+          "Information Technology",
+          "Materials",
+          "Telecommunication Services",
+          "Utilities", 
+          "Unknown"
+        ],
+        "name": "Select a sector: "
+      }
+    }],
   "layer": [
     {
       "data": {
@@ -16,6 +60,11 @@
       "data": {
         "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
       },
+      "transform": [
+    {"filter": "Sector_selection == null || datum.Sector == Sector_selection"},
+    {"filter": "datum['Market\\.Value'] > MarVal_Above"}
+  ],
+      
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"}
@@ -47,4 +96,5 @@
       ]
     }
   ]
+
 }

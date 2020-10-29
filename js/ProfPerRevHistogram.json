@@ -89,7 +89,7 @@
         "title": "Count"},
         "color":{"value":"#5e3c99"},
         "tooltip": [
-          {"aggregate": "count", "type": "quantitative", "title": "Count"}
+          {"aggregate": "count", "type": "quantitative", "title": "Number of Companies"}
     ]
       }
       },{
@@ -115,7 +115,7 @@
         "title": ""},
         "color":{"value":"#5e3c99"},
         "tooltip": [
-          {"aggregate": "count", "type": "quantitative", "title": "Count"}
+          {"aggregate": "count", "type": "quantitative", "title": "Number of Companies"}
     ]
       }
       }]

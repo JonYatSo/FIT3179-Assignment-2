@@ -154,7 +154,7 @@
     {
       "mark": {
         "type": "text",
-        "align": "right",
+        "align": "left",
         "baseline": "middle",
         "dx": -12,
         "fontSize": 11.5,

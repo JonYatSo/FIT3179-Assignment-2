@@ -88,12 +88,34 @@
                         }
                       
                          },
+            
             "tooltip": [{"field": "Country", "type":"nominal"},
                         {"field": "Country","aggregate": "count", "type":"quantitative",
                         "title":"Number of Companies"},
-                       {"field":"Market\\.Value", "aggregate":"mean","type": "quantitative","title": "Mean Market Value of Country"}]
+                       {"field":"Market\\.Value", "aggregate":"mean","type": "quantitative","title": "Mean Market Value of Country"}
+                       ]
+                       
             }
-          }
+          },
+          {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'United States' || datum['Country'] == 'China' || datum['Country'] == 'Japan' || datum['Country'] == 'Australia' || datum['Country'] == 'United Kingdom' || datum['Country'] == 'Singapore' ||  datum['Country'] == 'Brazil'||  datum['Country'] == 'South Africa'||  datum['Country'] == 'South Korea'||  datum['Country'] == 'India'||  datum['Country'] == 'France'||  datum['Country'] == 'Italy'||  datum['Country'] == 'Hong Kong'||  datum['Country'] == 'Thailand'||  datum['Country'] == 'Greece'||  datum['Country'] == 'Qatar'||  datum['Country'] == 'Israel'",
+            "value": 1
+          },
+          "value": 0
+        }}}
       ]
     }
   ]

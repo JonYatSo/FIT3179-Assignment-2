@@ -73,8 +73,8 @@
     {"filter": "Continent_selection == null || datum.Continent == Continent_selection"}
   ],
   "hconcat":[{
-    "width": 600,
-    "height": 600,
+    "width": 450,
+    "height": 450,
     "layer":[{
       "selection": {
           "brush": {"type": "interval", "encodings": ["x"]}},
@@ -102,8 +102,8 @@
           {"aggregate":"mean","field":"ProfitPerRevenue", "type": "quantitative", "title": "Mean Value"}]
               }}]
         
-  }, {"width": 200,
-      "height": 600,
+  }, {"width": 150,
+      "height": 450,
       "mark": "bar",
       "encoding": {
         "x": {

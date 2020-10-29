@@ -87,7 +87,7 @@
         "y": {"aggregate": "count",
         "title": "Count"},
         "tooltip": [
-          {"aggregate": "count", "type": "quantitative", "title": "Count"}
+          {"aggregate": "count", "type": "quantitative", "title": "Number of Companies"}
     ]
       }
       },{
@@ -112,7 +112,7 @@
         "y": {"aggregate": "count",
         "title": ""},
         "tooltip": [
-          {"aggregate": "count", "type": "quantitative", "title": "Count"}
+          {"aggregate": "count", "type": "quantitative", "title": "Number of Companies"}
     ]
       }
       }]

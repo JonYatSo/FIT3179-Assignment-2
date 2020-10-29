@@ -1,0 +1,164 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "The number of companies featured on Forbes Global 2000 in 2019 in each sector and industry",
+  "params": [{"name": "MarVal_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 400,
+        "step": 10,
+        "name": "Min Market Value(B$USD): "
+      }
+    },
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Africa",
+          "Asia",
+          "Australia",
+          "Europe",
+          "North America",
+          "South America",
+          "Unknown"
+        ],
+        "labels":[
+          "Show All",
+         "Africa",
+          "Asia",
+          "Australia",
+          "Europe",
+          "North America",
+          "South America",
+          "Unknown"
+        ],
+        "name": "Select continent: "
+      }
+    }
+  ],
+  
+  "hconcat":[{
+    "width": 600,
+    "height": 600,
+     "data": {
+    "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
+  },
+    "selection": {
+    "Sector_selection": {
+      "type": "single",
+      "fields": ["Sector"],
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Consumer Discretionary",
+          "Consumer Staples",
+          "Energy",
+          "Financials",
+          "Health Care",
+          "Industrials",
+          "Information Technology",
+          "Materials",
+          "Telecommunication Services",
+          "Utilities", 
+          "Unknown"
+        ],
+        "labels":[
+          "Show All",
+          "Consumer Discretionary",
+          "Consumer Staples",
+          "Energy",
+          "Financials",
+          "Health Care",
+          "Industrials",
+          "Information Technology",
+          "Materials",
+          "Telecommunication Services",
+          "Utilities", 
+          "Unknown"
+        ],
+        "name": "Select a sector: "}
+    }
+  },
+   "transform": [
+    {"filter": "datum['Market\\.Value'] > MarVal_Above"},
+    {"filter": "Continent_selection == null || datum.Continent == Continent_selection"}
+  ],
+    "mark": "bar",
+    "encoding": {
+    "y": {"field": "Sector", "type": "nominal"},
+    "x": {"aggregate":"count","type": "quantitative","title":"Number of Companies"},
+    "color":{ "field": "Sector",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+          "Consumer Discretionary",
+          "Consumer Staples",
+          "Energy",
+          "Financials",
+          "Health Care",
+          "Industrials",
+          "Information Technology",
+          "Materials",
+          "Telecommunication Services",
+          "Utilities", 
+          "Unknown"
+            ],
+            "range": 
+              ["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#6a3d9a","#c51b8a"]
+               }
+    
+    },
+  "opacity": { "condition": {"selection":"Sector_selection", "value": 1}, "value": 0.2
+},
+  "tooltip":[
+   {"field":"Sector","type":"nominal"},
+   {"aggregate":"count","type": "quantitative", "title": "Number of Companies"},
+   {"field":"Market\\.Value", "aggregate":"mean","type": "quantitative","title": "Mean Market Value of Sector"}]
+
+  }}, 
+  {"width": 600,
+    "height": 600,
+     "data": {
+    "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
+  },
+     "transform": [
+    {"filter": "datum['Market\\.Value'] > MarVal_Above"},
+    {"filter": "Continent_selection == null || datum.Continent == Continent_selection"},
+    {"filter":{"selection":"Sector_selection"}}
+  ],
+  "mark": "bar",
+    "encoding": {
+    "y": {"field": "Industry", "type": "nominal", "sort":{"field":"Sector"}},
+    "x": {"aggregate":"count","type": "quantitative","title": "<---- This visualisation will change accordingly to the sector chosen on the left drop down list"},
+    "color":{ "field": "Sector",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+          "Consumer Discretionary",
+          "Consumer Staples",
+          "Energy",
+          "Financials",
+          "Health Care",
+          "Industrials",
+          "Information Technology",
+          "Materials",
+          "Telecommunication Services",
+          "Utilities", 
+          "Unknown"
+            ],
+            "range": 
+              ["#a6cee3","#1f78b4","#b2df8a","#33a02c","#fb9a99","#e31a1c","#fdbf6f","#ff7f00","#cab2d6","#6a3d9a","#c51b8a"]
+               }},
+      "tooltip":[
+         {"field":"Industry","type":"nominal"},
+    {"field":"Sector","type":"nominal"},
+   {"aggregate":"count","type": "quantitative", "title": "Number of Companies"},
+   {"field":"Market\\.Value", "aggregate":"mean","type": "quantitative","title": "Mean Market Value of Industry"}]
+    
+    }}]
+  }
+

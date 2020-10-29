@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "Histogram of profit per dollar of assets for companies featured in Forbes 2000 in 2019",
+  "title": "Histogram of profit per dollar of assets for companies featured in Forbes Global 2000 in 2019",
   "data": {
     "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
   },

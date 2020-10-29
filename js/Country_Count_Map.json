@@ -90,7 +90,8 @@
                          },
             "tooltip": [{"field": "Country", "type":"nominal"},
                         {"field": "Country","aggregate": "count", "type":"quantitative",
-                        "title":"Count"}]   
+                        "title":"Number of Companies"},
+                       {"field":"Market\\.Value", "aggregate":"mean","type": "quantitative","title": "Mean Market Value of Country"}]
             }
           }
       ]

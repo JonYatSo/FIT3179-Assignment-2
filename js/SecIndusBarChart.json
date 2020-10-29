@@ -41,7 +41,7 @@
   ],
   
   "hconcat":[{
-    "width": 800,
+    "width": 600,
     "height": 800,
      "data": {
     "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
@@ -120,7 +120,7 @@
    {"field":"Market\\.Value", "aggregate":"mean","type": "quantitative","title": "Mean Market Value of Sector"}]
 
   }}, 
-  {"width": 800,
+  {"width": 600,
     "height": 800,
      "data": {
     "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"

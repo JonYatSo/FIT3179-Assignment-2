@@ -41,7 +41,7 @@
   ],
   
   "hconcat":[{
-    "width": 600,
+    "width": 700,
     "height": 800,
      "data": {
     "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
@@ -120,7 +120,7 @@
    {"field":"Market\\.Value", "aggregate":"mean","type": "quantitative","title": "Mean Market Value of Sector"}]
 
   }}, 
-  {"width": 600,
+  {"width": 700,
     "height": 800,
      "data": {
     "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
@@ -132,7 +132,7 @@
   ],
   "mark": "bar",
     "encoding": {
-    "y": {"field": "Sector", "type": "nominal", "sort":{"field":"Sector"}},
+    "y": {"field": "Industry", "type": "nominal", "sort":{"field":"Sector"}},
     "x": {"aggregate":"count","type": "quantitative","title": "<---- This visualisation will change accordingly to the sector chosen on the left drop down list"},
     "color":{ "field": "Sector",
           "type": "nominal",

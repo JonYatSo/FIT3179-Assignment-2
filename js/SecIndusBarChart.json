@@ -132,7 +132,7 @@
   ],
   "mark": "bar",
     "encoding": {
-    "y": {"field": "Industry", "type": "nominal", "sort":{"field":"Sector"}},
+    "y": {"field": "Sector", "type": "nominal", "sort":{"field":"Sector"}},
     "x": {"aggregate":"count","type": "quantitative","title": "<---- This visualisation will change accordingly to the sector chosen on the left drop down list"},
     "color":{ "field": "Sector",
           "type": "nominal",

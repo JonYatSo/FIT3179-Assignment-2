@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "Histogram of profit per dollar of revenue for companies featured in Forbes Global 2000 in 2019",
+  "title": {"text":"Histogram of profit per dollar of revenue for companies featured in Forbes Global 2000 in 2019","fontSize":25},
   "data": {
     "url": "https://raw.githubusercontent.com/JonYatSo/FIT3179-Assignment-2/main/data/Forbes_Global_2000_for_2019_cleaned_v4.csv"
   },
@@ -83,10 +83,11 @@
         "x": {
           "bin": {"binned": false, "step": 0.075},
           "field": "ProfitPerRevenue",
-          "title": "Amount of profit per dollar of revenue earned"
+          "title": "Amount of profit per dollar of revenue earned",
+           "axis": {"titleFontSize":17,"labelFontSize":13}
         },
         "y": {"aggregate": "count",
-        "title": "Count"},
+        "title": "Number of companies", "axis": {"titleFontSize":17,"labelFontSize":13}},
         "color":{"value":"#5e3c99"},
         "tooltip": [
           {"aggregate": "count", "type": "quantitative", "title": "Number of Companies"}
@@ -109,10 +110,11 @@
         "x": {
           "bin": {"binned": false, "step": 0.025,"extent": {"selection": "brush"}},
           "field": "ProfitPerRevenue",
-          "title": "<---drag through a range on the left histogram to see details"
+          "title": "<---drag through a range on the left histogram to see details",
+           "axis": {"titleFontSize":13,"labelFontSize":13}
         },
         "y": {"aggregate": "count",
-        "title": ""},
+        "title": "", "axis": {"titleFontSize":17,"labelFontSize":13}},
         "color":{"value":"#5e3c99"},
         "tooltip": [
           {"aggregate": "count", "type": "quantitative", "title": "Number of Companies"}

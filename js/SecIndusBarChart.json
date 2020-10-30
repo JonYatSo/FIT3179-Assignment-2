@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": {"text":"The number of companies featured on Forbes Global 2000 in 2019 in each sector and industry", "fontSize":25},
+  "title": {"text":"The number of companies featured on Forbes Global 2000 in 2019 in each sector and industry", "fontSize":35},
   "params": [{"name": "MarVal_Above",
       "value": 0,
       "bind": {
@@ -89,8 +89,8 @@
   ],
     "mark": "bar",
     "encoding": {
-    "y": {"field": "Sector", "type": "nominal"},
-    "x": {"aggregate":"count","type": "quantitative","title":"Number of Companies"},
+    "y": {"field": "Sector", "type": "nominal","axis":{"titleFontSize":20,"labelFontSize":15}},
+    "x": {"aggregate":"count","type": "quantitative","title":"Number of Companies","axis":{"titleFontSize":20,"labelFontSize":15}},
     "color":{ "field": "Sector",
           "type": "nominal",
           "scale": {
@@ -132,8 +132,8 @@
   ],
   "mark": "bar",
     "encoding": {
-    "y": {"field": "Industry", "type": "nominal", "sort":{"field":"Sector"}},
-    "x": {"aggregate":"count","type": "quantitative","title": "<---- This visualisation will change accordingly to the sector chosen on the left drop down list"},
+    "y": {"field": "Industry", "type": "nominal", "sort":{"field":"Sector"},"axis":{"titleFontSize":20,"labelFontSize":10}},
+    "x": {"aggregate":"count","type": "quantitative","title": "<---- This visualisation will change accordingly to the sector chosen on the left drop down list","axis":{"titleFontSize":20,"labelFontSize":15}},
     "color":{ "field": "Sector",
           "type": "nominal",
           "scale": {

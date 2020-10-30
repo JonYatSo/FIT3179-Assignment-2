@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 1800,
   "height": 800,
-  "title": "Number of companies from each Country that is featured on Forbes Global 2000 in 2019",
+  "title": {"text":"Number of companies from each Country that is featured on Forbes Global 2000 in 2019", "fontSize":35},
   "projection": {"type": "equalEarth"},
   "params": [{"name": "MarVal_Above",
       "value": 0,
@@ -82,10 +82,11 @@
                      "type": "quantitative",
                      "scale": {
                           "domain":[10,50,100],
-                          "range":[50,100,200,500],
+                          "range":[100,150,250,550],
                           "type":"threshold",
                           "zero": false
-                        }
+                        }, 
+                        "legend":{"title":"Number of companies", "titleFontSize":15, "labelFontSize":13}
                       
                          },
             
@@ -102,9 +103,8 @@
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "dx": -12,
-        "fontSize": 11.5,
-        "fontStyle": "italic"
+        "dx": -20,
+        "fontSize": 13
       },
       "encoding": {
         "text": {"field": "Country", "type": "nominal"},

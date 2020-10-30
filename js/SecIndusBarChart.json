@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "The number of companies featured on Forbes Global 2000 in 2019 in each sector and industry",
+  "title": {"text":"The number of companies featured on Forbes Global 2000 in 2019 in each sector and industry", "fontSize":25},
   "params": [{"name": "MarVal_Above",
       "value": 0,
       "bind": {
